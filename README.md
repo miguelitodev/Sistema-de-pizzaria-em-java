@@ -1,2 +1,2 @@
-# Sistema-de-pizzaria-em-java
+# Sistema de pizzaria em java
 Um sistema básico feito em java para uma pizzaria, usado JFrame
