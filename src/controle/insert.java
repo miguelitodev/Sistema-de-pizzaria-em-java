@@ -29,7 +29,7 @@ public class insert {
 			
 			//prepara o banco e inseri informações e cada ? indica o campo na tabela//
 			
-			PreparedStatement pst = bd.con.prepareStatement("insert into tbCadastro (nome,telefone,endereco,sabor,borda,quantidade,descricao,valorTotal) values(?,?,?,?,?,?,?,?,?)");
+			PreparedStatement pst = bd.con.prepareStatement("insert into tbCadastro (nome,telefone,endereco,sabor,borda,quantidade,descricao, preco) values(?,?,?,?,?,?,?,?)");
 		
 					
 					//comando para inserir primeiro campo na tabela//
@@ -38,9 +38,9 @@ public class insert {
 					pst.setString(3,c.getEndereco()) ;
 					pst.setString(4,c.getSabor()) ;
 					pst.setString(5,c.getBorda()) ;
-					pst.setFloat(6,c.getQuantidade());
+					pst.setDouble(6,c.getQuantidade());
 					pst.setString(7,c.getDescricao());
-					pst.setFloat(8,c.getPreco());
+					pst.setDouble(8,c.getPreco());
 			       
 			       //executa comando na tabela///
 			       

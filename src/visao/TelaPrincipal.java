@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 import controle.insert;
 import modelo.Cadastro;
-import modelo.Cliente;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -33,10 +32,9 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 	private JTextField textFieldEndereco;
 	private JTextField textFieldDescricao;
 	private JTextField textFieldQuantidade;
+	String op;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,26 +48,27 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public TelaPrincipal() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 350, 565);
+		setBounds(100, 100, 364, 565);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		
 		JLabel lblPizzariaDoPica = new JLabel("Pizzaria do Pica Pau");
 		lblPizzariaDoPica.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblPizzariaDoPica.setForeground(new Color(220, 20, 60));
-		lblPizzariaDoPica.setBounds(34, 16, 314, 49);
+		lblPizzariaDoPica.setBounds(41, 16, 273, 49);
 		contentPane.add(lblPizzariaDoPica);
 		
 		JRadioButton radioButtonBordaRecheada = new JRadioButton("Borda Recheada");
 		radioButtonBordaRecheada.setBackground(new Color(255, 245, 238));
-		radioButtonBordaRecheada.setBounds(74, 229, 109, 23);
+		radioButtonBordaRecheada.setBounds(74, 229, 115, 23);
 		contentPane.add(radioButtonBordaRecheada);
 		
 		JRadioButton radioButtonBordaNormal = new JRadioButton("Borda Normal");
@@ -82,6 +81,8 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 		comboBoxPizzas.setModel(new DefaultComboBoxModel(new String[] {"", "Calabresa", "Frango c/ catupiry", "Portuguesa", "Marguerita", "Mussarela", "Brigadeiro", "Napolitana", "Romeu e Julieta", "Atum", "California"}));
 		comboBoxPizzas.setBounds(130, 169, 145, 20);
 		contentPane.add(comboBoxPizzas);
+		
+		
 		
 		textFieldQuantidade = new JTextField();
 		textFieldQuantidade.setBounds(195, 230, 80, 20);
@@ -108,16 +109,18 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 		contentPane.add(textFieldEndereco);
 		textFieldEndereco.setColumns(10);
 		
+		
+		
 		JLabel labelTipoBorda = new JLabel("Qual borda?");
 		labelTipoBorda.setBounds(74, 208, 80, 14);
 		contentPane.add(labelTipoBorda);
-		
+	
 		JLabel labelEndereco = new JLabel("Endere\u00E7o:");
 		labelEndereco.setBounds(74, 138, 58, 14);
 		contentPane.add(labelEndereco);
 		
 		JLabel labelTelefone = new JLabel("Telefone:");
-		labelTelefone.setBounds(74, 110, 46, 14);
+		labelTelefone.setBounds(74, 110, 80, 14);
 		contentPane.add(labelTelefone);
 		
 		JLabel labelSabor = new JLabel("Sabor:");
@@ -132,31 +135,31 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 		labelNome.setBounds(74, 79, 46, 14);
 		contentPane.add(labelNome);
 		
-		JLabel labelValorTotal = new JLabel("Valor total");
-		labelValorTotal.setBounds(148, 403, 58, 14);
-		contentPane.add(labelValorTotal);
-		
-		JLabel labelValor = new JLabel("");
-		labelValor.setBounds(130, 428, 89, 28);
-		contentPane.add(labelValor);
-		
 		JButton buttonCadastrar = new JButton("Cadastrar");
 		buttonCadastrar.setForeground(new Color(240, 128, 128));
-		buttonCadastrar.setBackground(new Color(240, 128, 128));
-		buttonCadastrar.setBounds(130, 467, 89, 23);
+		buttonCadastrar.setBackground(Color.WHITE);
+		buttonCadastrar.setBounds(119, 467, 114, 23);
 		contentPane.add(buttonCadastrar);
 		
 		JLabel labelFundo = new JLabel("");
-		labelFundo.setIcon(new ImageIcon("C:\\Users\\Aluno\\eclipse-workspace\\Pizzaria\\src\\img\\wwpPizza.jpg"));
+		labelFundo.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\Sistema-de-pizzaria-em-java-master\\Sistema-de-pizzaria-em-java-master\\src\\img\\wwpPizza.jpg"));
 		labelFundo.setBounds(-14, -34, 378, 600);
 		contentPane.add(labelFundo);
 	
+		
+		
+		
+		if(radioButtonBordaNormal.isSelected()) {
+			op = "Borda normal";
+		}
+		else {
+			op = "Borda recheada";
+		}
+		
 		buttonCadastrar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				//construir classe modelo Cliente//
-				Cadastro c = new Cadastro();
 				
-				//contruir classe para inserir dados//
+				Cadastro c = new Cadastro();
 				insert d = new insert();
 				
 				if(e.getSource()==buttonCadastrar) {
@@ -165,18 +168,11 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 					c.setTelefone(textFieldTelefone.getText());
 					c.setEndereco(textFieldEndereco.getText());
 					c.setSabor(String.valueOf(comboBoxPizzas.getSelectedItem()));
-					
-					if(e.getSource()==radioButtonBordaNormal) {
-						c.setBorda("Borda normal");
-					}
-					if(e.getSource()==radioButtonBordaRecheada) {
-						c.setBorda("Borda recheada");
-					}
-					
+					c.setBorda(op.toString());
 					c.setQuantidade(Float.parseFloat(textFieldQuantidade.getText()));
 					c.setDescricao(textFieldDescricao.getText());
 					
-					float quantidade = c.getQuantidade();
+					double quantidade = c.getQuantidade();
 					
 					if(c.getSabor().equals("Calabresa")) {
 						c.setPreco(quantidade * 21.50);
@@ -212,9 +208,16 @@ public class TelaPrincipal extends JFrame implements ActionListener{
 						c.setPreco(quantidade * 0);
 					}
 					
-					JOptionPane.showInputDialog(null, "Sua compra ficou no valor de R$ " + c.getPreco());
+					d.cadastrar(c);
+					JOptionPane.showMessageDialog(null, "Sua compra ficou no valor de R$ " + c.getPreco());
 				}
 			}
 		});
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

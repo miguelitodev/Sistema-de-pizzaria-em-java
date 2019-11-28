@@ -4,91 +4,91 @@ package modelo;
 public class Cadastro {
 
 	
-	private String nome;
-	private String telefone;
-	private String endereco;
-	private String sabor;
-	private String borda;
-	private String quantidade;
-	private String descricao;
-	private Float preco;
+	private String Nome;
+	private String Telefone;
+	private String Endereco;
+	private String Sabor;
+	private String Borda;
+	private double Quantidade;
+	private String Descricao;
+	private double Preco;
 	
 	// NOME
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
 
 	public void setNome(String nome) {
-		nome = nome;
+		Nome = nome;
 	}
 	
 	// TELEFONE
 	
 	public String getTelefone() {
-		return telefone;
+		return Telefone;
 	}
 
 	public void setTelefone(String telefone) {
-		telefone = telefone;
+		Telefone = telefone;
 	}
 	
 	// ENDERECO
 	
 	public String getEndereco() {
-		return endereco;
+		return Endereco;
 	}
 
 	public void setEndereco(String endereco) {
-		endereco = endereco;
+		Endereco = endereco;
 	}
 	
 	// SABOR
 	public String getSabor() {
-		return sabor;
+		return Sabor;
 	}
 
 	public void setSabor(String sabor) {
-		sabor = sabor;
+		Sabor = sabor;
 	}
 
 	// BORDA
 	
 	public String getBorda() {
-		return borda;
+		return Borda;
 	}
 
 	public void setBorda(String borda) {
-		borda = borda;
+		Borda = borda;
 	}
 	
 	// QUANTIDADE
 	
-	public Float getQuantidade() {
-		return preco;
+	public double getQuantidade() {
+		return Quantidade;
 	}
 
-	public void setQuantidade(Float quantidade) {
-		quantidade = quantidade;
+	public void setQuantidade(double quantidade) {
+		Quantidade = quantidade;
 	}
 	
 	// DESCRICAO
 	
 	public String getDescricao() {
-		return descricao;
+		return Descricao;
 	}
 
 	public void setDescricao(String descricao) {
-		descricao = descricao;
+		Descricao = descricao;
 	}
 
 	// PRECO
 	
-	public float getPreco() {
-		return preco;
+	public double getPreco() {
+		return Preco;
 	}
 
 	public void setPreco(double preco) {
-		preco = preco;
+		Preco = preco;
 	}
 
 

@@ -12,7 +12,7 @@ public class ConexaoDAO {
    private String driver= driver = "com.Mysql.jdbc.Driver";
    
    //nome do banco criado em mysql//
-   private final String DBNAME ="bdPizzaria";
+   private final String DBNAME ="bdpizzaria";
    
    //sistema de conexao, servidor de conexao,nome do banco de dados//
    private String caminho="jdbc:mysql://localhost:3306/"+DBNAME;
